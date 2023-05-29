@@ -2,7 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 
 from src.data import CustomDataset
-from src.model import Static_reconstruction
+from src.model import Static_reconstruction, CustomLoss
 
 test_input_file = 'data/test_sdf_dataset'
 test_target_file = 'data/test_observed_points_dataset'
@@ -14,16 +14,17 @@ test_input_sample, test_target_sample = test_dataset[0]
 # print("Test target sample:", test_target_sample)
 
 
-batch_size = 2
+batch_size = 100
 input_size = 100
 hidden_size1 = 256
 hidden_size2 = 256
+hidden_size3 = 256
 output_size = 6
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-model = Static_reconstruction(input_size, hidden_size1, hidden_size2, output_size)
+model = Static_reconstruction(input_size, hidden_size1, hidden_size2, hidden_size3, output_size)
 model.load_state_dict(torch.load(model_path))
-criterion = torch.nn.MSELoss()  # Choose an appropriate loss function
+criterion = CustomLoss()  # Choose an appropriate loss function
 
 test_loss = 0.0
 num = 0

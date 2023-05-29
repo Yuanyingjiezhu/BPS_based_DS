@@ -35,7 +35,7 @@ num_epochs = 3000
 # Define your neural network src
 model = Static_reconstruction(input_size, hidden_size1, hidden_size2, hidden_size3, output_size)
 criterion = CustomLoss()  # Choose an appropriate loss function
-optimizer = optim.Adam(model.parameters(), lr=0.0001, weight_decay=0.00001)  # Choose an optimizer
+optimizer = optim.Adam(model.parameters(), lr=0.0003, weight_decay=0.00001)  # Choose an optimizer
 train_loss_history = []  # loss
 model.train()
 

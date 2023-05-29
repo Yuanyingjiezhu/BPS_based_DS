@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-num_test_data = 4
+num_test_data = 1000
 
 # Read the file contents
 with open('data/test_sdf_pred', 'r') as file:
