@@ -225,4 +225,3 @@ class BPS:
                 row_str = ' '.join([str(element) for element in sdf])  # Convert each element to string
                 file.write(row_str + '\n')
 
-# cal_bps(x_range,y_range,num_train_data,num_test_data, base_points)

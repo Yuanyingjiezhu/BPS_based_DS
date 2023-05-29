@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from src.data import CustomDataset
 from src.model import Static_reconstruction, CustomLoss
 
-# os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 input_file = 'data/sdf_dataset'
 target_file = 'data/observed_points_dataset'
 save_dir = 'out/model/'
@@ -27,11 +27,11 @@ batch_size = 64
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 input_size = 100
-hidden_size1 = 512
-hidden_size2 = 512
-hidden_size3 = 512
+hidden_size1 = 256
+hidden_size2 = 256
+hidden_size3 = 256
 output_size = 6
-num_epochs = 2000
+num_epochs = 3000
 # Define your neural network src
 model = Static_reconstruction(input_size, hidden_size1, hidden_size2, hidden_size3, output_size)
 criterion = CustomLoss()  # Choose an appropriate loss function
